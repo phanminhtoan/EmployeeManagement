@@ -21,8 +21,7 @@ namespace WindowsFormsApplication1
         
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            
-
+            btnSearch_Click(sender, e);
         }
 
         private SqlConnection  connect()
@@ -49,7 +48,8 @@ namespace WindowsFormsApplication1
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string keyName = txtName.Text; 
+            string keyName = txtName.Text;
+            //dgvStaff.AutoGenerateColumns = false;
             dgvStaff.DataSource = sreachStaff(keyName);
         }
 
@@ -57,6 +57,11 @@ namespace WindowsFormsApplication1
         {
             var fromAddStaff = new frmAddStaff();
             fromAddStaff.Show();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+              
         }
     }
 }

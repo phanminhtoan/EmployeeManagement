@@ -38,6 +38,7 @@
             // 
             // dgvStaff
             // 
+            this.dgvStaff.AllowUserToAddRows = false;
             this.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStaff.Location = new System.Drawing.Point(1, 74);
             this.dgvStaff.Name = "dgvStaff";
@@ -93,6 +94,7 @@
             this.Controls.Add(this.dgvStaff);
             this.Name = "frmMain";
             this.Text = "Quản Lý Nhân Viên";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

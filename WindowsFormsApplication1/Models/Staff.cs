@@ -22,6 +22,11 @@ namespace WindowsFormsApplication1.Models
             var con = connect();
             con.Open();
             var dataInsert = new StringBuilder();
+
+            dataInsert.AppendFormat("insert into NHANVIEN ");
+            dataInsert.AppendFormat("values('{0}', '{1}', '{2}', '{3}')", id, name, phone, date.ToShortDateString());
+            var sqlCmd = new SqlCommand(dataInsert.ToString(), con);
+            /*
             dataInsert.Append("insert into NHANVIEN ");
             dataInsert.Append("values(@MANV, @HOTEN, @SODT, @NGVL)");
             var sqlCmd = new SqlCommand(dataInsert.ToString(), con);
@@ -35,7 +40,8 @@ namespace WindowsFormsApplication1.Models
             sqlCmd.Parameters["@HOTEN"].Value = name;
             sqlCmd.Parameters["@SODT"].Value = phone;
             sqlCmd.Parameters["@NGVL"].Value = date.ToShortDateString();
-            
+            */
+
             /*var param = new SqlParameter();
               param.DbType = DbType.String;
               param.ParameterName = "@MANV";
