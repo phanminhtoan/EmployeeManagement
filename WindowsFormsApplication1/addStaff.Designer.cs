@@ -35,8 +35,10 @@
             this.createStaff = new System.Windows.Forms.Button();
             this.txtStaffId = new System.Windows.Forms.TextBox();
             this.txtStaffName = new System.Windows.Forms.TextBox();
-            this.txtStaffPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtStaffEmail = new System.Windows.Forms.TextBox();
             this.staffDateTime = new System.Windows.Forms.DateTimePicker();
+            this.lbStaffRole = new System.Windows.Forms.Label();
+            this.cbxStaffRole = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -62,22 +64,22 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
+            this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Phone Number";
+            this.label3.Text = "Email";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 135);
+            this.label4.Location = new System.Drawing.Point(8, 175);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
+            this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Ngày Vào Làm";
+            this.label4.Text = "Ngày Sinh";
             // 
             // createStaff
             // 
-            this.createStaff.Location = new System.Drawing.Point(144, 182);
+            this.createStaff.Location = new System.Drawing.Point(144, 208);
             this.createStaff.Name = "createStaff";
             this.createStaff.Size = new System.Drawing.Size(75, 23);
             this.createStaff.TabIndex = 4;
@@ -99,27 +101,46 @@
             this.txtStaffName.Size = new System.Drawing.Size(200, 20);
             this.txtStaffName.TabIndex = 6;
             // 
-            // txtStaffPhoneNumber
+            // txtStaffEmail
             // 
-            this.txtStaffPhoneNumber.Location = new System.Drawing.Point(144, 100);
-            this.txtStaffPhoneNumber.Name = "txtStaffPhoneNumber";
-            this.txtStaffPhoneNumber.Size = new System.Drawing.Size(200, 20);
-            this.txtStaffPhoneNumber.TabIndex = 7;
+            this.txtStaffEmail.Location = new System.Drawing.Point(144, 100);
+            this.txtStaffEmail.Name = "txtStaffEmail";
+            this.txtStaffEmail.Size = new System.Drawing.Size(200, 20);
+            this.txtStaffEmail.TabIndex = 7;
             // 
             // staffDateTime
             // 
-            this.staffDateTime.Location = new System.Drawing.Point(144, 135);
+            this.staffDateTime.Location = new System.Drawing.Point(144, 168);
             this.staffDateTime.Name = "staffDateTime";
             this.staffDateTime.Size = new System.Drawing.Size(200, 20);
             this.staffDateTime.TabIndex = 8;
+            // 
+            // lbStaffRole
+            // 
+            this.lbStaffRole.AutoSize = true;
+            this.lbStaffRole.Location = new System.Drawing.Point(13, 139);
+            this.lbStaffRole.Name = "lbStaffRole";
+            this.lbStaffRole.Size = new System.Drawing.Size(37, 13);
+            this.lbStaffRole.TabIndex = 9;
+            this.lbStaffRole.Text = "Vai trò";
+            // 
+            // cbxStaffRole
+            // 
+            this.cbxStaffRole.FormattingEnabled = true;
+            this.cbxStaffRole.Location = new System.Drawing.Point(144, 131);
+            this.cbxStaffRole.Name = "cbxStaffRole";
+            this.cbxStaffRole.Size = new System.Drawing.Size(200, 21);
+            this.cbxStaffRole.TabIndex = 10;
             // 
             // frmAddStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 261);
+            this.Controls.Add(this.cbxStaffRole);
+            this.Controls.Add(this.lbStaffRole);
             this.Controls.Add(this.staffDateTime);
-            this.Controls.Add(this.txtStaffPhoneNumber);
+            this.Controls.Add(this.txtStaffEmail);
             this.Controls.Add(this.txtStaffName);
             this.Controls.Add(this.txtStaffId);
             this.Controls.Add(this.createStaff);
@@ -129,6 +150,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmAddStaff";
             this.Text = "Thêm nhân viên";
+            this.Load += new System.EventHandler(this.frmAddStaff_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +165,9 @@
         private System.Windows.Forms.Button createStaff;
         private System.Windows.Forms.TextBox txtStaffId;
         private System.Windows.Forms.TextBox txtStaffName;
-        private System.Windows.Forms.TextBox txtStaffPhoneNumber;
+        private System.Windows.Forms.TextBox txtStaffEmail;
         private System.Windows.Forms.DateTimePicker staffDateTime;
+        private System.Windows.Forms.Label lbStaffRole;
+        private System.Windows.Forms.ComboBox cbxStaffRole;
     }
 }

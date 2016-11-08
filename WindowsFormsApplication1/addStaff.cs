@@ -22,16 +22,18 @@ namespace WindowsFormsApplication1
         private  SqlConnection connect()
         {
             var connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=DESKTOP-7H93CC6\\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True";
+            connection.ConnectionString = "Data Source=DESKTOP-7H93CC6\\SQLEXPRESS;Initial Catalog=QLNV;Integrated Security=True";
             return connection;
         }
         private void createStaff_Click(object sender, EventArgs e)
         {
-            var id = txtStaffId.Text;
+            var id = int.Parse(txtStaffId.Text);
             var name = txtStaffName.Text;
-            var phone = txtStaffPhoneNumber.Text;
+            var email = txtStaffEmail.Text;
+            var roleId = int.Parse(cbxStaffRole.SelectedValue.ToString());
             DateTime date = staffDateTime.Value;
-            bool createStaff = Staff.createStaff(id, name, phone, date);
+
+            bool createStaff = Staff.createStaff(id, name, email, roleId, date);
             
             if(createStaff == true)
             {
@@ -42,6 +44,18 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Thêm thất bại");
             }
+        }
+
+        private void frmAddStaff_Load(object sender, EventArgs e)
+        {
+            loadRole();
+        }
+
+        private void loadRole()
+        {
+            cbxStaffRole.DataSource = Role.getRole();
+            cbxStaffRole.DisplayMember = "name";
+            cbxStaffRole.ValueMember = "id";
         }
     }
 }

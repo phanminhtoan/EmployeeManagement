@@ -27,14 +27,14 @@ namespace WindowsFormsApplication1
         private SqlConnection  connect()
         {
             var connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=DESKTOP-7H93CC6\\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True";
+            connection.ConnectionString = "Data Source=DESKTOP-7H93CC6\\SQLEXPRESS;Initial Catalog=QLNV;Integrated Security=True";
             return connection;
         }
         private DataTable sreachStaff( string KeyName)
         {
             var connection = connect();
             var dataName = new StringBuilder();
-            dataName.Append("select * from NHANVIEN where HOTEN like '%'+ @keyName +'%' ");
+            dataName.Append("select * from USERS where name like '%'+ @keyName +'%' ");
             var sqlCmd = new SqlCommand(dataName.ToString(), connection);
             var param = new SqlParameter("@keyName", SqlDbType.VarChar);
             param.Value = KeyName;

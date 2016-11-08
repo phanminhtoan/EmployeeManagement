@@ -8,23 +8,16 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1.Models
 {
-   public class Staff
+   public class Staff:AbstractModel
     {
-        private static SqlConnection connect()
-        {
-            var connection = new SqlConnection();
-            connection.ConnectionString = "Data Source=DESKTOP-7H93CC6\\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True";
-            return connection;
-        }
-
-        public static bool createStaff(string id, string name, string phone, DateTime date)
+        public static bool createStaff(int id, string name, string email,int roleId ,DateTime date)
         {
             var con = connect();
             con.Open();
             var dataInsert = new StringBuilder();
 
-            dataInsert.AppendFormat("insert into NHANVIEN ");
-            dataInsert.AppendFormat("values('{0}', '{1}', '{2}', '{3}')", id, name, phone, date.ToShortDateString());
+            dataInsert.AppendFormat("insert into USERS ");
+            dataInsert.AppendFormat("values('{0}', '{1}', '{2}', '{3}', {4})", id, name, email, roleId, date.ToShortDateString());
             var sqlCmd = new SqlCommand(dataInsert.ToString(), con);
             /*
             dataInsert.Append("insert into NHANVIEN ");
