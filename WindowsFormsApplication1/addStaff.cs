@@ -27,23 +27,31 @@ namespace WindowsFormsApplication1
         }
         private void createStaff_Click(object sender, EventArgs e)
         {
-            var id = int.Parse(txtStaffId.Text);
-            var name = txtStaffName.Text;
-            var email = txtStaffEmail.Text;
-            var roleId = int.Parse(cbxStaffRole.SelectedValue.ToString());
-            DateTime date = staffDateTime.Value;
+            try
+            {
+                var id = int.Parse(txtStaffId.Text);
+                var name = txtStaffName.Text;
+                var email = txtStaffEmail.Text;
+                var roleId = int.Parse(cbxStaffRole.SelectedValue.ToString());
+                DateTime date = staffDateTime.Value;
 
-            bool createStaff = Staff.createStaff(id, name, email, roleId, date);
+                bool createStaff = Staff.createStaff(id, name, email, roleId, date);
+
+                if (createStaff == true)
+                {
+                    this.Close();
+                    MessageBox.Show("Thêm thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
+            }
+            catch(Exception exception)
+            {
+                lbErrorAddStaff.Text = "Can't create, Please check your information again";
+            }
             
-            if(createStaff == true)
-            {
-                MessageBox.Show("Thêm thành công");
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Thêm thất bại");
-            }
         }
 
         private void frmAddStaff_Load(object sender, EventArgs e)
@@ -53,9 +61,22 @@ namespace WindowsFormsApplication1
 
         private void loadRole()
         {
-            cbxStaffRole.DataSource = Role.getRole();
-            cbxStaffRole.DisplayMember = "name";
-            cbxStaffRole.ValueMember = "id";
+            try
+            {
+                cbxStaffRole.DataSource = Role.getRole();
+                cbxStaffRole.DisplayMember = "name";
+                cbxStaffRole.ValueMember = "id";
+            }
+            catch(Exception exception)
+            {
+                lbErrorAddStaff.Text = "Can't get data Role, Please check your connection with database";
+            }
+           
+        }
+
+        private void btnAddStaffCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

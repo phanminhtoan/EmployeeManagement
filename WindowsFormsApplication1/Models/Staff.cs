@@ -16,8 +16,8 @@ namespace WindowsFormsApplication1.Models
             con.Open();
             var dataInsert = new StringBuilder();
 
-            dataInsert.AppendFormat("insert into USERS ");
-            dataInsert.AppendFormat("values('{0}', '{1}', '{2}', '{3}', {4})", id, name, email, roleId, date.ToShortDateString());
+            dataInsert.AppendFormat("insert into USERS(id,name,email,role,birthday) ");
+            dataInsert.AppendFormat("values('{0}', '{1}', '{2}', '{3}', '{4}')", id, name, email, roleId, date.ToShortDateString());
             var sqlCmd = new SqlCommand(dataInsert.ToString(), con);
             /*
             dataInsert.Append("insert into NHANVIEN ");

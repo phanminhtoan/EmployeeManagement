@@ -33,6 +33,11 @@
             this.lbName = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.addStaff = new System.Windows.Forms.Button();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,6 +45,12 @@
             // 
             this.dgvStaff.AllowUserToAddRows = false;
             this.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.name,
+            this.email,
+            this.role,
+            this.birthday,
+            this.id});
             this.dgvStaff.Location = new System.Drawing.Point(1, 74);
             this.dgvStaff.Name = "dgvStaff";
             this.dgvStaff.Size = new System.Drawing.Size(576, 184);
@@ -82,6 +93,41 @@
             this.addStaff.UseVisualStyleBackColor = true;
             this.addStaff.Click += new System.EventHandler(this.addStaff_Click);
             // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Họ Tên";
+            this.name.Name = "name";
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "email";
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            this.email.Width = 150;
+            // 
+            // role
+            // 
+            this.role.DataPropertyName = "role";
+            this.role.HeaderText = "Vai trò";
+            this.role.Name = "role";
+            this.role.Visible = false;
+            // 
+            // birthday
+            // 
+            this.birthday.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.birthday.DataPropertyName = "birthday";
+            this.birthday.HeaderText = "Ngày Sinh";
+            this.birthday.Name = "birthday";
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,6 +153,11 @@
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button addStaff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birthday;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
     }
 }
 
